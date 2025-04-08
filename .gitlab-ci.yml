@@ -13,6 +13,7 @@ variables:
 deploy:
   stage: deploy
   image: alpine/helm:3.2.1
+  entrypoint: [""]
   script:
     - ls -la
     - cd; mkdir .kube; cd .kube
