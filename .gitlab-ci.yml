@@ -18,6 +18,7 @@ deploy:
     entrypoint: [""]
   script:
     - ls -la
+    - env | grep CI
     - cd; mkdir .kube; cd .kube; echo "-->"; echo $KUBECONFIG_SECRET; echo "<--"; echo $KUBECONFIG_SECRET > config; ls -la; cat config
     - helm upgrade ${APP_NAME} ./charts --install --namespace ${APP_NAME}
   rules:
