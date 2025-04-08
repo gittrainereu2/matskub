@@ -23,7 +23,7 @@ deploy:
     #- cat $KUBECONFIG_SECRET 
     #- echo "after"
     - cd; mkdir .kube; cd .kube; cat $KUBECONFIG_SECRET > config; ls -la; cat config
-    - cd $CI_PROJECT_DIR; helm upgrade ${APP_NAME} ./charts/my-app --install --namespace ${APP_NAME} --create-namespace
+    - cd $CI_PROJECT_DIR; helm upgrade ${APP_NAME} ./charts/my-app --install --namespace ${APP_NAME} --create-namespace -f ./config/values.yaml
   rules:
     - if: $CI_COMMIT_BRANCH == 'master'
       when: always
