@@ -18,11 +18,11 @@ deploy:
     entrypoint: [""]
   script:
     - ls -la
-    - env | grep CI
-    - echo "before"
-    - cat $KUBECONFIG_SECRET 
-    - echo "after"
-    - cd; mkdir .kube; cd .kube; echo "-->"; echo $KUBECONFIG_SECRET; echo "<--"; echo $KUBECONFIG_SECRET > config; ls -la; cat config
+    #- env | grep CI
+    #- echo "before"
+    #- cat $KUBECONFIG_SECRET 
+    #- echo "after"
+    - cd; mkdir .kube; cd .kube; echo "-->"; cat $KUBECONFIG_SECRET > config; ls -la; cat config
     - helm upgrade ${APP_NAME} ./charts --install --namespace ${APP_NAME}
   rules:
     - if: $CI_COMMIT_BRANCH == 'master'
