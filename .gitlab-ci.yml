@@ -9,7 +9,7 @@ stages:          # List of stages for jobs, and their order of execution
 
 variables:
   APP_NAME: my-first-app
-  KUBECONFIG_SECRET: $KUBECONFIG_SECRET
+# KUBECONFIG_SECRET: $KUBECONFIG_SECRET
 
 deploy:
   stage: deploy
