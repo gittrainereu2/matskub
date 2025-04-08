@@ -9,6 +9,7 @@ stages:          # List of stages for jobs, and their order of execution
 
 variables:
   APP_NAME: my-first-app
+  KUBECONFIG_SECRET: $KUBECONFIG_SECRET
 
 deploy:
   stage: deploy
@@ -17,7 +18,7 @@ deploy:
     entrypoint: [""]
   script:
     - ls -la
-    - cd; mkdir .kube; cd .kube
+    - cd; mkdir .kube; cd .kube; echo "$KUBECONFIG_SECRET" > config; ls -la
     - helm upgrade ${APP_NAME} ./charts --install --namespace ${APP_NAME}
   rules:
     - if: $CI_COMMIT_BRANCH == 'master'
