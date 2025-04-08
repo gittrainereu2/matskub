@@ -12,7 +12,8 @@ variables:
 
 deploy:
   stage: deploy
-  image: alpine/helm:3.2.1
+  image: 
+    name: alpine/helm:3.2.1
     entrypoint: [""]
   script:
     - ls -la
