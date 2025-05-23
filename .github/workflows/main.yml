@@ -26,3 +26,4 @@ jobs:
       run: |
 
         helm upgrade --install my-release ./charts/my-app --namespace mats --create-namespace
+        kubectl -n default get all
