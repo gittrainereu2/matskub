@@ -25,4 +25,4 @@ jobs:
     - name: Deploy with Helm
       run: |
 
-        helm upgrade --install my-release ./chart/my-app --namespace mats --create-namespace
+        helm upgrade --install my-release ./charts/my-app --namespace mats --create-namespace
