@@ -2,8 +2,8 @@ name: Ein Job mit dynamischer Variable je nach Zeitplan
 
 on:
   schedule:
-    - cron: '0 8 * * 1'   # Montag 08:00 UTC
-    - cron: '53 13 * * 5'  # Freitag 20:00 UTC
+    - cron: '*/10 * * * *'   # Montag 08:00 UTC
+    - cron: '*/5 * * * *'  # Freitag 20:00 UTC
 
 jobs:
   dynamic-message:
@@ -13,11 +13,11 @@ jobs:
         id: set-message
         run: |
           case "${{ github.event.schedule }}" in
-            '0 8 * * 1')
-              echo "message=Guten Morgen am Montag!" >> $GITHUB_OUTPUT
+            '*/10 * * * *')
+              echo "message=Was geht aabbbb?" >> $GITHUB_OUTPUT
               ;;
-            '53 13 * * 5')
-              echo "message=Guten Nachmittag am Freitag!" >> $GITHUB_OUTPUT
+            '*/5 * * * *')
+              echo "message=Wasssss geeeeehhhhhtttttt aaaaaabbbb" >> $GITHUB_OUTPUT
               ;;
             *)
               echo "message=Unbekannter Zeitplan" >> $GITHUB_OUTPUT
