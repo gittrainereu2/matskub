@@ -19,9 +19,9 @@ jobs:
 
     - name: Install Helm
       uses: azure/setup-helm@v3
-
-    - name: Deploy with Helm
-      run: |
 # bitte euren namespace eintragen anstelle von default , z.B. euren namen
 # muss eindeutig sein 
-        helm upgrade --install my-release ./chart --namespace mats --create-namespace
+    - name: Deploy with Helm
+      run: |
+
+        helm upgrade --install my-release ./chart/my-app --namespace mats --create-namespace
